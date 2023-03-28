@@ -1,0 +1,51 @@
+
+# =============== #
+# Fmod cache #
+# =============== #
+Assets/Plugins/FMOD/Cache/*
+Assets/StreamingAssets/**/*.bank
+Assets/StreamingAssets/**/*.bank.meta
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+UserSettings/Layouts/
+UserSettings/Layouts/*
+UserSettings/Layouts/default-2021.dwlt
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+.vscode/
+.vscode/*
+
+.idea/
+.idea/*
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+Logs/*
+*.log
+*.csproj
+.sln
+netrunner/*.csproj
