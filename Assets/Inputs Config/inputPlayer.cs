@@ -42,7 +42,7 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
                     ""id"": ""f0c2d4a8-8f0f-4b6a-81f9-f189494cf2a0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -50,6 +50,15 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""f44b4825-97c3-4041-91ec-0e5d9c7587e9"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""testClavier"",
+                    ""type"": ""Button"",
+                    ""id"": ""128462dc-444d-4332-8874-f7ef1091c392"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -70,7 +79,7 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2727a0e2-f21e-4839-8171-dc920eca72cd"",
-                    ""path"": ""<Touchscreen>/touch1/press"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -88,6 +97,17 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
                     ""action"": ""primaryPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f98cb2ce-86db-4a1d-8366-362c4c9e19ab"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""testClavier"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
         m_Player_gravitySwitch = m_Player.FindAction("gravitySwitch", throwIfNotFound: true);
         m_Player_primaryContact = m_Player.FindAction("primaryContact", throwIfNotFound: true);
         m_Player_primaryPosition = m_Player.FindAction("primaryPosition", throwIfNotFound: true);
+        m_Player_testClavier = m_Player.FindAction("testClavier", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +184,7 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_gravitySwitch;
     private readonly InputAction m_Player_primaryContact;
     private readonly InputAction m_Player_primaryPosition;
+    private readonly InputAction m_Player_testClavier;
     public struct PlayerActions
     {
         private @InputPlayer m_Wrapper;
@@ -170,6 +192,7 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
         public InputAction @gravitySwitch => m_Wrapper.m_Player_gravitySwitch;
         public InputAction @primaryContact => m_Wrapper.m_Player_primaryContact;
         public InputAction @primaryPosition => m_Wrapper.m_Player_primaryPosition;
+        public InputAction @testClavier => m_Wrapper.m_Player_testClavier;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +211,9 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
             @primaryPosition.started += instance.OnPrimaryPosition;
             @primaryPosition.performed += instance.OnPrimaryPosition;
             @primaryPosition.canceled += instance.OnPrimaryPosition;
+            @testClavier.started += instance.OnTestClavier;
+            @testClavier.performed += instance.OnTestClavier;
+            @testClavier.canceled += instance.OnTestClavier;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -201,6 +227,9 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
             @primaryPosition.started -= instance.OnPrimaryPosition;
             @primaryPosition.performed -= instance.OnPrimaryPosition;
             @primaryPosition.canceled -= instance.OnPrimaryPosition;
+            @testClavier.started -= instance.OnTestClavier;
+            @testClavier.performed -= instance.OnTestClavier;
+            @testClavier.canceled -= instance.OnTestClavier;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -223,5 +252,6 @@ public partial class @InputPlayer: IInputActionCollection2, IDisposable
         void OnGravitySwitch(InputAction.CallbackContext context);
         void OnPrimaryContact(InputAction.CallbackContext context);
         void OnPrimaryPosition(InputAction.CallbackContext context);
+        void OnTestClavier(InputAction.CallbackContext context);
     }
 }

@@ -18,6 +18,7 @@ public class SwipDetection : MonoBehaviour
 
     private void Awake() {
         InputManager = InputManager.Instance;
+        Debug.Log("test");
     }
 
     private void OnEnable() {

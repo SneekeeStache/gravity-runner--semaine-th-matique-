@@ -28,8 +28,6 @@ obj/
 *.user
 *.unityproj
 *.booproj
-.vscode/
-.vscode/*
 
 .idea/
 .idea/*
