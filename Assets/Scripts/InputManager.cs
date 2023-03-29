@@ -28,7 +28,6 @@ public class InputManager : Singleton<InputManager>
     {
         playerControls.Player.primaryContact.started += ctx => StartTouchPrimary(ctx);
         playerControls.Player.primaryContact.canceled += ctx => EndTouchPrimary(ctx);
-        playerControls.Player.testClavier.started += _ => testClavier();
     }
 
     // Update is called once per frame
@@ -38,7 +37,6 @@ public class InputManager : Singleton<InputManager>
     }
 
     private void StartTouchPrimary(InputAction.CallbackContext ctx){
-        print("test");
         if(OnStartTouch != null)OnStartTouch(utils.ScreenToWorld(mainCamera,playerControls.Player.primaryPosition.ReadValue<Vector2>()),(float)ctx.startTime);
     }
     private void EndTouchPrimary(InputAction.CallbackContext ctx){
@@ -48,7 +46,5 @@ public class InputManager : Singleton<InputManager>
     public Vector2 primaryPosition(){
         return utils.ScreenToWorld(mainCamera,playerControls.Player.primaryPosition.ReadValue<Vector2>());
     }
-    public void testClavier(){
-        print("test");
-    }
+
 }
