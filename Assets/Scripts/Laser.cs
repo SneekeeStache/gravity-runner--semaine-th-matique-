@@ -31,10 +31,14 @@ public class Laser : MonoBehaviour
             laserRenderer.SetPosition(1,
                 Vector3.Lerp(laserRenderer.GetPosition(1), LaserFinalPosition, Time.deltaTime * speed));
             RaycastHit2D hit = (Physics2D.Linecast(transform.position, linecastPosition));
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider != null)
             {
-                hit.collider.GetComponent<playerScript>().death();
+                if (hit.collider.CompareTag("Player"))
+                {
+                    hit.collider.GetComponent<playerScript>().death();
+                }
             }
+            
             Debug.DrawLine(transform.position, linecastPosition, Color.green);
         }
     }
