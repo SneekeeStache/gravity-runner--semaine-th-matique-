@@ -484,8 +484,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: son+fmod/utiliser/fmod/fmod.fspro
-  sourceBankPath: son+fmod/utiliser/fmod/Build
+  sourceProjectPath: son+fmod/mobile/utiliser/fmod/fmod.fspro
+  sourceBankPath: son+fmod/mobile/utiliser/fmod/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
