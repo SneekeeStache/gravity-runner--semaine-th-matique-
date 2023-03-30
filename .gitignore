@@ -5,8 +5,7 @@
 Assets/Plugins/FMOD/Cache/*
 Assets/StreamingAssets/**/*.bank
 Assets/StreamingAssets/**/*.bank.meta
-Assets/son+fmod/utiliser/fmod/metadata/*
-Assets/son+fmod/utiliser/fmod/metadata/*.meta
+
 # =============== #
 # Unity generated #
 # =============== #

@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfdbad4c608c9e80866723404db88bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 8876215330253176001}
+  bullet: {fileID: 6882536334127141879, guid: 6b0de3fa796bc524297058bea17ef712, type: 3}
 --- !u!1 &8566150503585933248
 GameObject:
   m_ObjectHideFlags: 0
