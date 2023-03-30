@@ -24,18 +24,19 @@ public class Laser : MonoBehaviour
     void Update()
     {
         Debug.Log(linecastPosition);
-        
+
         if (laserAnimBool)
         {
             linecastPosition = Vector3.Lerp(linecastPosition, endLaser.position, Time.deltaTime * speed);
-            laserRenderer.SetPosition(1,Vector3.Lerp(laserRenderer.GetPosition(1),LaserFinalPosition,Time.deltaTime*speed));
-            RaycastHit hit;
-            if(Physics.Linecast(transform.position, linecastPosition, out hit))
+            laserRenderer.SetPosition(1,
+                Vector3.Lerp(laserRenderer.GetPosition(1), LaserFinalPosition, Time.deltaTime * speed));
+            RaycastHit2D hit = (Physics2D.Linecast(transform.position, linecastPosition));
+            if (hit.collider.CompareTag("Player"))
             {
-                
+                hit.collider.GetComponent<playerScript>().death();
             }
+            Debug.DrawLine(transform.position, linecastPosition, Color.green);
         }
-        Debug.DrawLine(transform.position,linecastPosition,Color.green);
     }
 
     public void laserOn()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,5 +52,15 @@ public class playerScript : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other) {
         onGround=false;
         AnimManager.SetBool("Jumping", true);
+    }
+
+    public void death()
+    {
+        AnimManager.SetBool("Dead",true);
+    }
+
+    public void GameOver()
+    {
+        
     }
 }
