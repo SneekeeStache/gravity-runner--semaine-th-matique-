@@ -16,6 +16,10 @@ public class playerScript : MonoBehaviour
     [HideInInspector] public bool onGround=false;
     [SerializeField] private Animator AnimManager;
 
+    [SerializeField] public Canvas gameOver;
+    [SerializeField] public Canvas UI;
+    [SerializeField] private Animator menuAnim;
+
     void Start()
     {
 
@@ -26,6 +30,7 @@ public class playerScript : MonoBehaviour
     {
         
     }
+
 
     public void GoLeftSide()
     {
@@ -41,7 +46,9 @@ public class playerScript : MonoBehaviour
         rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         transform.DORotateQuaternion(Quaternion.Euler(0, 0, -270), rotationDuration);
         transform.DOScaleX(1.25f,rotationDuration);
-        rb.gravityScale = -1; 
+        rb.gravityScale = -1;
+        menuAnim.SetBool("StartGame", true);
+        UI.gameObject.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -61,6 +68,6 @@ public class playerScript : MonoBehaviour
 
     public void GameOver()
     {
-        
+        gameOver.gameObject.SetActive(true);
     }
 }
