@@ -9,9 +9,15 @@ public class paterneScrolling : MonoBehaviour
     [SerializeField] private Vector3 destroyPosition;
 
     [SerializeField] private float speed=2;
+
+    private GameObject spawner;
+
+    private Spawner spawnerScript;
     // Start is called before the first frame update
     void Start()
     {
+        spawner=GameObject.Find("Spawner");
+        spawnerScript = spawner.GetComponent<Spawner>();
         transform.position = spawnPosition;
     }
 
@@ -20,6 +26,7 @@ public class paterneScrolling : MonoBehaviour
     {
         if (transform.position.y <= destroyPosition.y)
         {
+            spawnerScript.StartSpawning = true;
             Destroy(gameObject);
         }
 
