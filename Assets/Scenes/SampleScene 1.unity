@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &52375105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,9 +1927,12 @@ MonoBehaviour:
   rotationDuration: 0.5
   onGround: 0
   AnimManager: {fileID: 1655659816}
+  Swip: {fileID: 1631288963}
   gameOver: {fileID: 710121372}
   UI: {fileID: 52375107}
   menuAnim: {fileID: 1363111814}
+  touch: {fileID: -5620926031435978786, guid: 24bb03fc5d3642d5e8b822ea389bc283, type: 3}
+  gameoverBool: 0
 --- !u!95 &1655659816
 Animator:
   serializedVersion: 5
