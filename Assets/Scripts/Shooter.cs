@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-
+using FMODUnity;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
@@ -23,5 +23,6 @@ public class Shooter : MonoBehaviour
     public void Shoot()
     {
         Instantiate(bullet, spawnPoint.position, quaternion.identity);
+        RuntimeManager.PlayOneShot("event:/ennemi_shoot");
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class playerScript : MonoBehaviour
 {
@@ -57,6 +58,7 @@ public class playerScript : MonoBehaviour
         rb.gravityScale = 1;
         transform.DORotateQuaternion(Quaternion.Euler(0, 0, -90), rotationDuration);
         transform.DOScaleX(-1.25f, rotationDuration);
+        RuntimeManager.PlayOneShot("event:/jump");
 
     }
 
@@ -68,6 +70,7 @@ public class playerScript : MonoBehaviour
         rb.gravityScale = -1;
         menuAnim.SetBool("StartGame", true);
         UI.gameObject.SetActive(true);
+        RuntimeManager.PlayOneShot("event:/jump");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -89,6 +92,8 @@ public class playerScript : MonoBehaviour
     {
         gameOver.gameObject.SetActive(true);
         gameoverBool = true;
+        RuntimeManager.PlayOneShot("event:/death");
+        
         
     }
 }

@@ -10,7 +10,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private List<GameObject> paternsDifficile = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private GameObject canvasScore;
-
+    [SerializeField] private FMODUnity.StudioEventEmitter music;
+    
     [Header("parametre")] 
     [SerializeField] private float timeSpawn=0.5f;
     public float paternSpeed=3;
@@ -38,6 +39,7 @@ public class Spawner : MonoBehaviour
     {
         if (startGame)
         {
+            music.SetParameter("start",1);
             timerScore += Time.deltaTime;
             int currentScore = Mathf.RoundToInt(timerScore);
             score.text = currentScore.ToString();

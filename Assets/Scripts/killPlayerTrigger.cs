@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class killPlayerTrigger : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class killPlayerTrigger : MonoBehaviour
             if (col.CompareTag("Player"))
             {
                 col.GetComponent<playerScript>().death();
+                
             }
         }
     }
