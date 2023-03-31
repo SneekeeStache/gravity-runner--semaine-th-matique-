@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using FMODUnity;
 
@@ -17,6 +16,7 @@ public class playerScript : MonoBehaviour
     private InputManager InputManager;
 
     [Header("Stats")]
+    FMOD.Studio.Bus MasterBus;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float rotationDuration = 0.5f;
     [HideInInspector] public bool onGround=false;
@@ -35,7 +35,7 @@ public class playerScript : MonoBehaviour
 
     void Start()
     {
-
+        MasterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
     }
 
     // Update is called once per frame
@@ -47,6 +47,8 @@ public class playerScript : MonoBehaviour
                 {
                     Swip.SetActive(false);
                     SceneManager.LoadScene("Scenes/SampleScene 1");
+                    MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
                 }
         }
     }
