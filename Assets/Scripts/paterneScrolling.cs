@@ -8,7 +8,7 @@ public class paterneScrolling : MonoBehaviour
 
     [SerializeField] private Vector3 destroyPosition;
 
-    [SerializeField] private float speed=2;
+    
 
     private GameObject spawner;
 
@@ -30,6 +30,6 @@ public class paterneScrolling : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.position += -transform.up * speed * Time.deltaTime;
+        transform.position += -transform.up * spawnerScript.paternSpeed * Time.deltaTime;
     }
 }

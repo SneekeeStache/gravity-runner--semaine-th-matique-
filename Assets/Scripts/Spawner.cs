@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
 
     [Header("parametre")] 
     [SerializeField] private float timeSpawn=0.5f;
+    public float paternSpeed=3;
 
     private float timerSpawn = 0;
     //choix paterns determine quel list de paterns le spawner va utiliser
@@ -90,10 +91,12 @@ public class Spawner : MonoBehaviour
         if (timerScore >= niveau1a2)
         {
             choixPaterns = choixPaterns2;
+            paternSpeed = 5;
         }
         else if (timerScore >= niveau2a3)
         {
             choixPaterns = choixPaterns3;
+            paternSpeed=7;
         }
 
     }

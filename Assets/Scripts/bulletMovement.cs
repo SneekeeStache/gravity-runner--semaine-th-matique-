@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class bulletMovement : MonoBehaviour
 {
-    [SerializeField] private float speed=2;
+    private GameObject spawner;
+
+    private Spawner spawnerScript;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawner=GameObject.Find("Spawner");
+        spawnerScript = spawner.GetComponent<Spawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += -transform.up * speed * Time.deltaTime;
+        
+        transform.position += -transform.up * (spawnerScript.paternSpeed+0.5f) * Time.deltaTime;
         if (transform.position.y <= -7)
         {
             Destroy(gameObject);
