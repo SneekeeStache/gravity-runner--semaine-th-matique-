@@ -40,7 +40,6 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(touch.action.phase);
         if (gameoverBool)
         {
                 if(touch.action.phase == InputActionPhase.Performed)
