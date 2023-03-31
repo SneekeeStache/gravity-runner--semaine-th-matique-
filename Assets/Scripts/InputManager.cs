@@ -28,6 +28,7 @@ public class InputManager : Singleton<InputManager>
     {
         playerControls.Player.primaryContact.started += ctx => StartTouchPrimary(ctx);
         playerControls.Player.primaryContact.canceled += ctx => EndTouchPrimary(ctx);
+
     }
 
     // Update is called once per frame
@@ -46,5 +47,11 @@ public class InputManager : Singleton<InputManager>
     public Vector2 primaryPosition(){
         return utils.ScreenToWorld(mainCamera,playerControls.Player.primaryPosition.ReadValue<Vector2>());
     }
+
+
+
+    
+
+
 
 }

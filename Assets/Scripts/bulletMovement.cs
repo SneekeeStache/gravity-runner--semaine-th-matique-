@@ -18,7 +18,7 @@ public class bulletMovement : MonoBehaviour
     void Update()
     {
         
-        transform.position += -transform.up * (spawnerScript.paternSpeed+0.5f) * Time.deltaTime;
+        transform.position += -transform.up * (spawnerScript.paternSpeed+2f) * Time.deltaTime;
         if (transform.position.y <= -7)
         {
             Destroy(gameObject);

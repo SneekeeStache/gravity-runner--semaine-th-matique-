@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
@@ -11,6 +12,8 @@ public class playerScript : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
 
     public bool onLeft = true;
+
+    private InputManager InputManager;
 
     [Header("Stats")]
     [SerializeField] float jumpForce = 2;
@@ -22,6 +25,12 @@ public class playerScript : MonoBehaviour
     [SerializeField] public Canvas UI;
     [SerializeField] private Animator menuAnim;
 
+    [SerializeField] private InputActionReference touch;
+
+    public bool gameoverBool = false;
+
+
+
     void Start()
     {
 
@@ -30,7 +39,14 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(touch.action.phase);
+        if (gameoverBool)
+        {
+                if(touch.action.phase == InputActionPhase.Performed)
+                {
+                SceneManager.LoadScene("Scenes/SampleScene 1");
+                }
+        }
     }
 
 
@@ -71,6 +87,6 @@ public class playerScript : MonoBehaviour
     public void GameOver()
     {
         gameOver.gameObject.SetActive(true);
-        SceneManager.LoadScene("Scenes/SampleScene 1");
+        gameoverBool = true;
     }
 }
