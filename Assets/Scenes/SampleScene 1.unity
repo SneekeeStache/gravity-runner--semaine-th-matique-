@@ -808,7 +808,8 @@ MonoBehaviour:
   - {fileID: 1261031311082167871, guid: b0bd612cb3d51914fbcd30e33df0989b, type: 3}
   score: {fileID: 1951410771}
   canvasScore: {fileID: 52375104}
-  timeSpawn: 0.5
+  timeSpawn: 0.3
+  paternSpeed: 3
   niveau1a2: 20
   niveau2a3: 60
   StartSpawning: 0
