@@ -25,9 +25,11 @@ public class Spawner : MonoBehaviour
     private float timerScore = 0;
     [SerializeField]private float niveau1a2 = 20;
     [SerializeField]private float niveau2a3 = 60;
+    [SerializeField] private playerScript playerScript;
     [HideInInspector]public bool StartSpawning = false;
 
     [HideInInspector] public bool startGame = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,10 @@ public class Spawner : MonoBehaviour
         if (startGame)
         {
             music.SetParameter("start",1);
-            timerScore += Time.deltaTime;
+            if (!playerScript.gameoverBool)
+            {
+                timerScore += Time.deltaTime;
+            }
             int currentScore = Mathf.RoundToInt(timerScore);
             score.text = currentScore.ToString();
             if (StartSpawning)

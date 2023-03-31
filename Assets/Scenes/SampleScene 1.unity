@@ -752,6 +752,7 @@ MonoBehaviour:
   paternSpeed: 3
   niveau1a2: 20
   niveau2a3: 60
+  playerScript: {fileID: 1655659815}
   StartSpawning: 0
   startGame: 0
 --- !u!4 &761068373
