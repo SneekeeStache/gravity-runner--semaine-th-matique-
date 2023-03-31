@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 public class playerScript : MonoBehaviour
 {
     [SerializeField] public Rigidbody2D rb;
@@ -69,5 +71,6 @@ public class playerScript : MonoBehaviour
     public void GameOver()
     {
         gameOver.gameObject.SetActive(true);
+        SceneManager.LoadScene("Scenes/SampleScene 1");
     }
 }
