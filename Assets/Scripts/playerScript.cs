@@ -20,6 +20,7 @@ public class playerScript : MonoBehaviour
     [SerializeField] float rotationDuration = 0.5f;
     [HideInInspector] public bool onGround=false;
     [SerializeField] private Animator AnimManager;
+    [SerializeField] private GameObject Swip;
 
     [SerializeField] public Canvas gameOver;
     [SerializeField] public Canvas UI;
@@ -44,7 +45,8 @@ public class playerScript : MonoBehaviour
         {
                 if(touch.action.phase == InputActionPhase.Performed)
                 {
-                SceneManager.LoadScene("Scenes/SampleScene 1");
+                    Swip.SetActive(false);
+                    SceneManager.LoadScene("Scenes/SampleScene 1");
                 }
         }
     }
@@ -88,5 +90,6 @@ public class playerScript : MonoBehaviour
     {
         gameOver.gameObject.SetActive(true);
         gameoverBool = true;
+        
     }
 }
